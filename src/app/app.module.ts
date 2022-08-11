@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forRoot([]),
     CoreModule,
     PersonalModule,
     AppRoutingModule,
