@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RouterModule, CoreModule],
+  imports: [BrowserModule, FormsModule, RouterModule, CoreModule, SharedModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
