@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-wizard-step',
@@ -6,7 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wizard-step.component.css'],
 })
 export class WizardStepComponent implements OnInit {
+  @Input() title: string;
+  @Output() previousStepClicked = new EventEmitter();
+  @Output() nextStepClicked = new EventEmitter();
+
   constructor() {}
 
   ngOnInit() {}
+
+  goToPreviousStep() {
+    this.previousStepClicked.emit();
+  }
+
+  goToNextStep() {
+    this.nextStepClicked.emit();
+  }
 }
