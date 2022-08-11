@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
 import { PersonalModule } from './personal/personal.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { PersonalModule } from './personal/personal.module';
     FormsModule,
     RouterModule,
     CoreModule,
-    SharedModule,
     PersonalModule,
+    AppRoutingModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
