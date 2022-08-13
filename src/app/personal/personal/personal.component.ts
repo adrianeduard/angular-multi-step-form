@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-personal',
@@ -6,7 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personal.component.scss'],
 })
 export class PersonalComponent implements OnInit {
-  constructor() {}
+  title = 'Personal';
+  personalForm = this.fb.group(
+    {
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      age: [
+        null,
+        [Validators.required, Validators.min(18), Validators.max(120)],
+      ],
+      about: [null, [Validators.required]],
+    },
+    {
+      updateOn: 'blur',
+    }
+  );
+  firstNameCtrl = this.personalForm.get('firstName');
+  lastNameCtrl = this.personalForm.get('lastName');
+  ageCtrl = this.personalForm.get('age');
+  aboutCtrl = this.personalForm.get('about');
+  submitted = false;
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
+
+  goToNextStep() {
+    this.submitted = true;
+  }
 }
